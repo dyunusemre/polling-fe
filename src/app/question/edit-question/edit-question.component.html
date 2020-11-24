@@ -1,0 +1,30 @@
+<a>
+    <i class="fa fa-edit edit" title="Edit Question" (click)="openModal(myModal)"></i>
+</a>
+
+<ng-template #myModal let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="questionTitle">Edit the question</h5>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="questionForm">
+            <div formGroupName="questionHeader">
+                <div class="form-group">
+                    <label for="questionText">Question Text</label>
+                    <input required formControlName="questionText" id="questionText" type="text" class="form-control">
+                </div>
+            </div>
+            <div formArrayName="answers">
+                <h5>Answers</h5>
+                <div class="form-group" *ngFor="let answer of this.answerArr.controls; let i = index">
+                    <input type="text" class="form-control" [formControlName]="i">
+                </div>
+                <i (click)="onAddOption()" class="fa fa-plus fa-3x"></i>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="closeModalButton" type="button" (click)="modal.close();" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" (click)="updateQuestion(questionForm);" class="btn btn-primary" [disabled]="!questionForm.valid">Save changes</button>
+    </div>
+</ng-template>

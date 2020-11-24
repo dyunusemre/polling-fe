@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+</div>
+<div class="question-card" *ngFor="let question of waitingQuestions">
+    <div class="card">
+        <div class="card-header">
+            {{question.question}}
+            <a>
+                <i (click)="approveQuestion(question)" class="fa fa-check" title="Approve Question"></i>
+            </a>
+        </div>
+        <form disabled="true" #answerForm="ngForm">
+            <div class="card-body">
+                <ul class="list-group" *ngFor="let answer of question.answers">
+                    <li class="list-group-item">{{answer.option}}</li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <h2 *ngIf="waitingQuestions.length == 0">Nothing to list..</h2>
+</div>

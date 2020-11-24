@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+</div>
+<app-new-question [questions]="questions"></app-new-question>
+<div class="question-card" *ngFor="let questionH of questions">
+    <div class="card">
+        <div class="card-header">
+            {{questionH.question}}
+            <!--Edit Component-->
+            <app-edit-question *ngIf="isAdmin" [questions]="questions" [question]="questionH"></app-edit-question>
+            <a *ngIf="isAdmin">
+                <i (click)="deleteQuestion(questionH)" class="fa fa-trash delete" title="Delete Question"></i>
+            </a>
+        </div>
+        <div class="card-body">
+            <selected-app-answer [questionId]="questionH.id" [answers]="questionH.answers"></selected-app-answer>
+        </div>
+    </div>
+</div>

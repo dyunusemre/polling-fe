@@ -1,0 +1,18 @@
+<body class="text-center" cz-shortcut-listen="true">
+    <form class="form-signin" #loginForm="ngForm">
+        <h1 class="h3 mb-3 font-weight-normal">Login to proceed</h1>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input minlength="4" ngModel #username="ngModel" name="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input minlength="4" ngModel #password="ngModel" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <div class="checkbox mb-3">
+        </div>
+        <div class="alert alert-danger" *ngIf="error && !isLoading">
+            {{error}}
+        </div>
+        <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+        <button *ngIf="!isLoading" class="btn btn-lg btn-primary btn-block" (click)="onSubmit(loginForm);" type="submit" [disabled]="!loginForm.valid">{{!isLogin ? 'Signup' : 'Login'}}</button>
+        <br>
+        <label (click)="switchMode()" style="cursor: pointer;"> Switch to {{isLogin ? 'Signup' : 'Login'}}</label>
+    </form>
+</body>

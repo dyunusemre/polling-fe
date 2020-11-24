@@ -1,0 +1,11 @@
+<form disabled="true" #answerForm="ngForm">
+    <div class="radio" *ngFor="let answer of this.answers; let i = index">
+        <label>
+        <input [disabled]="isAlreadyAnswered"  [(ngModel)]="isSelected" type="radio" [value]="answer.optionNo" [name]="questionId" [ngModelOptions]="{standalone: true}">
+            {{answer.option}}
+         </label>
+    </div>
+    <button (click)="sendAnswer(questionId,isSelected)" [disabled]="isAlreadyAnswered" class="btn btn-outline-success">
+        <span  *ngIf="isVoteSending" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>Vote
+    </button>
+</form>

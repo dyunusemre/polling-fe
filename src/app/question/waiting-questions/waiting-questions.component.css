@@ -1,0 +1,23 @@
+.question-card {
+    padding-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+}
+
+.fa-check {
+    color: rgb(0, 255, 0);
+    float: right;
+    font-size: 2rem;
+}
+
+a {
+    overflow: hidden;
+    margin-left: auto;
+}

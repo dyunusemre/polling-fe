@@ -1,0 +1,31 @@
+.question-card {
+    padding-top: 50px;
+}
+
+.new-question {
+    padding-top: 35px;
+}
+
+.delete {
+    color: red;
+}
+
+.btn {
+    display: inline-block;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+}
+
+.fa-trash {
+    color: red;
+    float: right;
+    font-size: 1.5rem;
+}
+
+a {
+    overflow: hidden;
+    margin-left: auto;
+}
